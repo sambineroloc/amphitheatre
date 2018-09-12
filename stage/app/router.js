@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('campaigns');
   this.route('campaign', { path: '/campaigns/:id' });
+  this.route('login');
 });
 
 export default Router;
