@@ -6,13 +6,10 @@ export default Controller.extend({
 
   actions: {
     async authenticate() {
-      let { email, password } = this.getProperties('email', 'password');
-
-      try {
-        await this.get('session').authenticate('authenticator:oauth2', email, password);
-      } catch(e) {
-        this.set('errorMessage', e.error || e);
-      }
+      let { identification, password } = this.getProperties('identification', 'password');
+      this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
+        this.set('errorMessage', reason.error || reason);
+      });
     }
   }
 });
