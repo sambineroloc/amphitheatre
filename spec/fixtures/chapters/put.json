@@ -1,1 +1,18 @@
-{ "data": { "type": "chapters", "id": "1", "relationships": { "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"title": "title",	"description": "description"	}	} }
+{
+  "data": {
+    "type": "chapters",
+    "id": "1",
+    "relationships": {
+      "campaign": {
+        "data": {
+          "type": "campaigns",
+          "id": "1"
+        }
+      }
+    },
+    "attributes": {
+      "title": "title",
+      "description": "description"
+    }
+  }
+}

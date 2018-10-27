@@ -1,1 +1,24 @@
-{ "data": { "type": "blue-books", "relationships": { "chapter": { "data": { "type": "chapters", "id": "1" } }, "character": { "data": { "type": "characters", "id": "1" } } }, "attributes": { "title": "title", "body": "body", "reward": "reward" } } }
+{
+  "data": {
+    "type": "blue-books",
+    "relationships": {
+      "chapter": {
+        "data": {
+          "type": "chapters",
+          "id": "1"
+        }
+      },
+      "character": {
+        "data": {
+          "type": "characters",
+          "id": "1"
+        }
+      }
+    },
+    "attributes": {
+      "title": "title",
+      "body": "body",
+      "reward": "reward"
+    }
+  }
+}
