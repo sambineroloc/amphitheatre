@@ -58,7 +58,7 @@ RSpec.describe 'Blue Book requests', :type => :request do
       it "can create a blue book" do
         chapter
         character
-        json_helper = Helpers::JSON.new('blue_book')
+        json_helper = JsonHelper.new('blue_books')
         post blue_books_path,
           params: json_helper.successful_post,
           headers: json_helper.json_headers
@@ -72,7 +72,7 @@ RSpec.describe 'Blue Book requests', :type => :request do
   end
 
   describe 'PUT requests' do
-    let(:blue_book) { create(:blue_book, title: 'Super cool blue book', body: 'Wow', reward: 'What a nice reward') }
+    let(:blue_book) { create(:blue_book, id: 1, title: 'Super cool blue book', body: 'Wow', reward: 'What a nice reward') }
     let(:chapter) { create(:chapter, id: 1) }
     let(:character) { create(:character, id: 1) }
 
@@ -81,7 +81,7 @@ RSpec.describe 'Blue Book requests', :type => :request do
         chapter
         character
         blue_book
-        json_helper = Helpers::JSON.new('blue_book')
+        json_helper = JsonHelper.new('blue_books')
         put blue_book_path(blue_book),
           params: json_helper.successful_put(blue_book.id),
           headers: json_helper.json_headers
@@ -107,7 +107,7 @@ RSpec.describe 'Blue Book requests', :type => :request do
       it 'deletes the blue book' do
         blue_book
         expect(BlueBook.all.length).to eq(1)
-        json_helper = Helpers::JSON.new('blue_book')
+        json_helper = JsonHelper.new('blue_books')
         headers = json_helper.json_headers
         delete blue_book_path(blue_book), headers: headers
 

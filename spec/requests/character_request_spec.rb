@@ -94,7 +94,7 @@ RSpec.describe 'Character requests', :type => :request do
       it "can create a character" do
         campaign
         user
-        json_helper = Helpers::JSON.new('character')
+        json_helper = JsonHelper.new('characters')
         post characters_path,
           params: json_helper.successful_post,
           headers: json_helper.json_headers
@@ -108,7 +108,7 @@ RSpec.describe 'Character requests', :type => :request do
   end
 
   describe 'PUT requests' do
-    let(:character) { create(:character, name: 'Bobo', description: 'So brave', pc_class: 'Fighter', level: 3) }
+    let(:character) { create(:character, id: 1, name: 'Bobo', description: 'So brave', pc_class: 'Fighter', level: 3) }
     let(:campaign) { create(:campaign, id: 1) }
     let(:user) { create(:user, id: 1) }
 
@@ -117,7 +117,7 @@ RSpec.describe 'Character requests', :type => :request do
         campaign
         user
         character
-        json_helper = Helpers::JSON.new('character')
+        json_helper = JsonHelper.new('characters')
         headers = json_helper.json_headers
         successful_put = json_helper.successful_put(character.id)
         put character_path(character),
@@ -146,7 +146,7 @@ RSpec.describe 'Character requests', :type => :request do
       it 'deletes the character' do
         character
         expect(Character.all.length).to eq(1)
-        json_helper = Helpers::JSON.new('character')
+        json_helper = JsonHelper.new('characters')
         headers = json_helper.json_headers
         delete character_path(character), headers: headers
 

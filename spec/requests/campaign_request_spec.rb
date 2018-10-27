@@ -59,7 +59,7 @@ RSpec.describe 'Campaign requests', :type => :request do
 
       it "can create a campaign" do
         user
-        json_helper = Helpers::JSON.new('campaign')
+        json_helper = JsonHelper.new('campaigns')
         post campaigns_path,
           params: json_helper.successful_post,
           headers: json_helper.json_headers
@@ -73,14 +73,14 @@ RSpec.describe 'Campaign requests', :type => :request do
   end
 
   describe 'PUT requests' do
-    let(:campaign) { create(:campaign, title: 'Super cool campaign', description: 'Wow') }
+    let(:campaign) { create(:campaign, id: 1, title: 'Super cool campaign', description: 'Wow') }
     let(:user) { create(:user, id: 1) }
 
     context 'when the request is valid' do
       it 'updates the campaign' do
         campaign
         user
-        json_helper = Helpers::JSON.new('campaign')
+        json_helper = JsonHelper.new('campaigns')
         put campaign_path(campaign),
           params: json_helper.successful_put(campaign.id),
           headers: json_helper.json_headers
@@ -105,7 +105,7 @@ RSpec.describe 'Campaign requests', :type => :request do
       it 'deletes the campaign' do
         campaign
         expect(Campaign.all.length).to eq(1)
-        json_helper = Helpers::JSON.new('campaign')
+        json_helper = JsonHelper.new('campaigns')
         headers = json_helper.json_headers
         delete campaign_path(campaign), headers: headers
 

@@ -26,7 +26,7 @@ RSpec.describe 'User requests', :type => :request do
   describe 'POST /users' do
     context 'when the request is valid' do
       it "can create a user" do
-        json_helper = Helpers::JSON.new('user')
+        json_helper = JsonHelper.new('users')
         post users_path,
           params: json_helper.successful_post,
           headers: json_helper.json_headers
@@ -40,11 +40,11 @@ RSpec.describe 'User requests', :type => :request do
   end
 
   describe 'PUT requests' do
-    let(:user) { create(:user) }
+    let(:user) { create(:user, id: 1) }
 
     context 'when the request is valid' do
       it 'updates the user' do
-        json_helper = Helpers::JSON.new('user')
+        json_helper = JsonHelper.new('users')
         put user_path(user),
           params: json_helper.successful_put(user.id),
           headers: json_helper.json_headers
@@ -69,7 +69,7 @@ RSpec.describe 'User requests', :type => :request do
       it 'deletes the user' do
         user
         expect(User.all.length).to eq(1)
-        json_helper = Helpers::JSON.new('user')
+        json_helper = JsonHelper.new('users')
         headers = json_helper.json_headers
         delete user_path(user), headers: headers
 

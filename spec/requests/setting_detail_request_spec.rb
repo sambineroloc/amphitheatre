@@ -57,7 +57,7 @@ RSpec.describe 'Setting Detail requests', :type => :request do
     context 'when the request is valid' do
       it "can create a setting detail" do
         campaign
-        json_helper = Helpers::JSON.new('setting_detail')
+        json_helper = JsonHelper.new('setting_details')
         post setting_details_path,
           params: json_helper.successful_post,
           headers: json_helper.json_headers
@@ -71,14 +71,14 @@ RSpec.describe 'Setting Detail requests', :type => :request do
   end
 
   describe 'PUT requests' do
-    let(:setting_detail) { create(:setting_detail, title: 'Location', description: 'Crazyplace') }
+    let(:setting_detail) { create(:setting_detail, id: 1, title: 'Location', description: 'Crazyplace') }
     let(:campaign) { create(:campaign, id: 1) }
 
     context 'when the request is valid' do
       it 'updates the chapter' do
         campaign
         setting_detail
-        json_helper = Helpers::JSON.new('setting_detail')
+        json_helper = JsonHelper.new('setting_details')
         put setting_detail_path(setting_detail),
           params: json_helper.successful_put(setting_detail.id),
           headers: json_helper.json_headers
@@ -103,7 +103,7 @@ RSpec.describe 'Setting Detail requests', :type => :request do
       it 'deletes the setting detail' do
         setting_detail
         expect(SettingDetail.all.length).to eq(1)
-        json_helper = Helpers::JSON.new('setting_detail')
+        json_helper = JsonHelper.new('setting_details')
         headers = json_helper.json_headers
         delete setting_detail_path(setting_detail), headers: headers
 

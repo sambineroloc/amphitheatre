@@ -1,0 +1,1 @@
+{ "data": { "type": "characters", "relationships": { "user": { "data": { "type": "users", "id": "1" } }, "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"name": "name",	"description": "description", "pc-class": "class", "level": 1	}	} }

@@ -1,0 +1,1 @@
+{ "data": { "type": "blue-books", "id": "1", "relationships": { "chapter": { "data": { "type": "chapters", "id": "1" } }, "character": { "data": { "type": "characters", "id": "1" } } }, "attributes": { "title": "title", "body": "body", "reward": "reward" } } }

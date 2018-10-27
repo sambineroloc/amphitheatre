@@ -1,26 +1,19 @@
-module Helpers
-  class JSON
-    attr_accessor :model_name, :attributes, :relationships, :access_string
+class JsonHelper
+  attr_accessor :model_name
 
-    def initialize(model_name)
-      @model_name = model_name
-    end
+  def initialize(model_name)
+    @model_name = model_name
+  end
 
-    def json_headers
-      {
-        "ACCEPT": "application/vnd.api+json",
-        "CONTENT_TYPE": "application/vnd.api+json"
-      }
-    end
+  def json_headers
+    JSON.parse(File.read('spec/fixtures/json_headers.json'))
+  end
 
-    def successful_post
-      access_string = 'successful_post.' + @model_name
-      I18n.t('json_skeletons.' + access_string)
-    end
+  def successful_post
+    File.read("spec/fixtures/#{@model_name}/post.json")
+  end
 
-    def successful_put(model_id)
-      access_string = 'successful_put.' + @model_name
-      I18n.t('json_skeletons.' + access_string, id: model_id)
-    end
+  def successful_put(model_id)
+    File.read("spec/fixtures/#{@model_name}/put.json")
   end
 end

@@ -1,16 +1,1 @@
 en:
-  json_skeletons:
-    successful_post:
-      blue_book: '{ "data": { "type": "blue-books", "relationships": { "chapter": { "data": { "type": "chapters", "id": "1" } }, "character": { "data": { "type": "characters", "id": "1" } } }, "attributes": { "title": "title", "body": "body", "reward": "reward" } } }'
-      campaign: '{ "data": { "type": "campaigns", "relationships": { "user": { "data": { "type": "users", "id": "1" } } }, "attributes": { "title": "title", "description": "description" } } }'
-      chapter: '{ "data": { "type": "chapters", "relationships": { "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"title": "title",	"description": "description"	}	} }'
-      character: '{ "data": { "type": "characters", "relationships": { "user": { "data": { "type": "users", "id": "1" } }, "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"name": "name",	"description": "description", "pc-class": "class", "level": 1	}	} }'
-      setting_detail: '{ "data": { "type": "setting-details", "relationships": { "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"title": "title",	"description": "description"	}	} }'
-      user: '{ "data": { "type": "users", "attributes": { "username": "username", "email": "email@gmail.com", "password": "password", "password-confirmation": "password" } } }'
-    successful_put:
-      blue_book: '{ "data": { "type": "blue-books", "id": "%{id}", "relationships": { "chapter": { "data": { "type": "chapters", "id": "1" } }, "character": { "data": { "type": "characters", "id": "1" } } }, "attributes": { "title": "title", "body": "body", "reward": "reward" } } }'
-      campaign: '{ "data": { "type": "campaigns", "id": "%{id}", "relationships": { "user": { "data": { "type": "users", "id": "1" } } }, "attributes": { "title": "title", "description": "description" } } }'
-      chapter: '{ "data": { "type": "chapters", "id": "%{id}", "relationships": { "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"title": "title",	"description": "description"	}	} }'
-      character: '{ "data": { "type": "characters", "id": "%{id}", "relationships": { "user": { "data": { "type": "users", "id": "1" } }, "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"name": "name",	"description": "description", "pc-class": "class", "level": 1	}	} }'
-      setting_detail: '{ "data": { "type": "setting-details", "id": "%{id}", "relationships": { "campaign": { "data": { "type": "campaigns",	"id": "1"	}	}	},	"attributes": {	"title": "title",	"description": "description"	}	} }'
-      user: '{ "data": { "type": "users", "id": "%{id}", "attributes": { "username": "username", "email": "email@gmail.com", "password": "password", "password-confirmation": "password" } } }'

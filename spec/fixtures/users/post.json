@@ -1,0 +1,1 @@
+{ "data": { "type": "users", "attributes": { "username": "username", "email": "email@gmail.com", "password": "password", "password-confirmation": "password" } } }

@@ -1,0 +1,1 @@
+{ "data": { "type": "campaigns", "id": "1", "relationships": { "user": { "data": { "type": "users", "id": "1" } } }, "attributes": { "title": "title", "description": "description" } } }
