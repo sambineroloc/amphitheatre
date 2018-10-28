@@ -1,15 +1,16 @@
-<nav class='navbar' role="navigation" aria-label="main navigation">
+<nav class='navbar' role='navigation' aria-label='main navigation'>
   <div class='navbar-brand'>
-    <h1 class='navbar-item'>Tabletop Amphitheatre</h1>
+    <h1 class='navbar-item title'>Tabletop Amphitheatre</h1>
   </div>
-  <div class='navbar-menu'>
+  <div class='navbar-menu is-active'>
     <div class='navbar-end'>
-      <div class="navbar-item">
+      <div class='navbar-item'>
         <div class='buttons'>
           {{#if session.isAuthenticated}}
-            <a class='button' {{action 'invalidateSession'}}>Logout</a>
+            {{#link-to 'authenticated.campaigns' class='button is-small'}}Home{{/link-to}}
+            <a class='button is-small' {{action 'invalidateSession'}}>Logout</a>
           {{else}}
-            {{#link-to 'login' class='button'}}Login{{/link-to}}
+            {{#link-to 'login' class='button is-small'}}Login{{/link-to}}
           {{/if}}
         </div>
       </div>
