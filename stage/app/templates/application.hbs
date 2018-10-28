@@ -1,4 +1,22 @@
-{{nav-bar}}
+<nav class='navbar' role='navigation' aria-label='main navigation'>
+  <div class='navbar-brand'>
+    <h1 class='navbar-item'>Tabletop Amphitheatre</h1>
+  </div>
+  <div class='navbar-menu'>
+    <div class='navbar-end'>
+      <div class='navbar-item'>
+        <div class='buttons'>
+          {{#if session.isAuthenticated}}
+            <a class='button' {{action 'invalidateSession'}}>Logout</a>
+          {{else}}
+            {{#link-to 'login' class='button'}}Login{{/link-to}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <div class='main'>
   {{outlet}}
 </div>
