@@ -1,6 +1,8 @@
-<h1>Your Campaigns</h1>
-{{#each model as |campaign|}}
-  <p class='title'>{{campaign.title}}</p>
-  <p class='description'>{{campaign.description}}</p>
-{{/each}}
-{{outlet}}
+<div class='panel'>
+  <h1 class='panel-heading'>Your Campaigns</h1>
+  {{#each model as |campaign|}}
+    {{#link-to 'authenticated.campaign' campaign class='panel-block'}}
+      {{campaign.title}}
+    {{/link-to}}
+  {{/each}}
+</div>
