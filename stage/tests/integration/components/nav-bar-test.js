@@ -2,25 +2,24 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 
 module('Integration | Component | nav-bar', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('it renders the app title and login button when unauthenticated', async function(assert) {
     await render(hbs`{{nav-bar}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom('[data-test-navbar="title"]').hasText('Tabletop Amphitheatre');
+    assert.dom('[data-test-navbar="login"]').hasText('Login')
+  });
 
-    // Template block usage:
-    await render(hbs`
-      {{#nav-bar}}
-        template block text
-      {{/nav-bar}}
-    `);
+  test('it renders the app title, logout button, and home button when authenticated', async function(assert) {
+    await authenticateSession({ username: 'zberto@gmail.com', password: 'password' });
+    await render(hbs`{{nav-bar}}`);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-navbar="title"]').hasText('Tabletop Amphitheatre');
+    assert.dom('[data-test-navbar="logout"]').hasText('Logout');
+    assert.dom('[data-test-navbar="home"]').hasText('Home');
   });
 });

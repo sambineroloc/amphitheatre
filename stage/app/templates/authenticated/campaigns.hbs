@@ -1,7 +1,7 @@
 <div class='panel'>
-  <h1 class='panel-heading'>Your Campaigns</h1>
+  <h1 class='panel-heading' data-test-campaigns='header'>Your Campaigns</h1>
   {{#each model as |campaign|}}
-    {{#link-to 'authenticated.campaign' campaign class='panel-block'}}
+    {{#link-to 'authenticated.campaign' campaign class='panel-block' data-test-campaigns='campaign-title'}}
       {{campaign.title}}
     {{/link-to}}
   {{/each}}

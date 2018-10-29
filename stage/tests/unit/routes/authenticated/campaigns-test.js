@@ -13,7 +13,7 @@ module('Unit | Route | campaigns', function(hooks) {
     let campaign = server.create('campaign');
     await visit('/campaigns');
 
-    assert.dom('.title').hasText(campaign.title);
-    assert.dom('.description').hasText(campaign.description);
+    assert.dom('[data-test-campaigns="header"]').hasText('Your Campaigns');
+    assert.dom('[data-test-campaigns="campaign-title"]').hasText(campaign.title);
   });
 });
