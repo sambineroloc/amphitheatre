@@ -8,12 +8,14 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('login');
+
+  this.route('users', function() {
+    this.route('new', { path: 'sign_up' });
+  });
+
   this.route('authenticated', { path: '' }, function() {
     this.route('campaigns');
     this.route('campaign', { path: '/campaigns/:id' });
-  });
-  this.route('users', { path: '' }, function() {
-    this.route('new', { path: 'sign_up' });
   });
 });
 
