@@ -15,6 +15,9 @@
           {{/if}}
         </div>
       </div>
+      {{#if currentUser.user}}
+        <div class='navbar-item'>Logged in as {{currentUser.user.username}}</div>
+      {{/if}}
     </div>
   </div>
 </nav>

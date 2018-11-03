@@ -10,6 +10,8 @@ class SessionsController < ActionController::Base
     base_uri = 'http://localhost:3000/'
     response = HTTParty.get(base_uri + 'oauth/token/info',
                             query: { access_token: access_token })
-    render json: response
+    user_id = response['resource_owner_id']
+    user = HTTParty.get(base_uri + "users/#{user_id}")
+    render json: user
   end
 end
