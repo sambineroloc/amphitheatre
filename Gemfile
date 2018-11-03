@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'doorkeeper'
 gem 'ember-cli-rails'
+gem 'httparty'
 gem 'jbuilder', '~> 2.5'
 gem 'jsonapi-resources'
 gem 'pg', '>= 0.18', '< 2.0'

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   jsonapi_resources :characters
   jsonapi_resources :setting_details
   jsonapi_resources :users, only: %i[show create update destroy]
+
+  get '/me', to: 'sessions#me'
 end
