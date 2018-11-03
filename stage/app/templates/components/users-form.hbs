@@ -1,33 +1,33 @@
 <div class='box users-form'>
   <form class='field' {{action 'createUser' on='submit'}}>
-    <div class='field'>
+    <div class='field' data-test-form='username'>
       <label class='label' for='username'>Username</label>
       <div class='control'>
         {{input id='username' class='input' placeholder='Enter your username' value=username}}
       </div>
     </div>
 
-    <div class='field'>
+    <div class='field' data-test-form='email'>
       <label class='label' for='email'>Email</label>
       <div class='control'>
         {{input id='email' class='input' placeholder='Enter your email' value=email}}
       </div>
     </div>
 
-    <div class='field'>
+    <div class='field' data-test-form='password'>
       <label class='label' for='password'>Password</label>
       <div class='control'>
         {{input id='password' class='input' type='password' placeholder='Enter your password' value=password}}
       </div>
     </div>
 
-    <div class='field'>
+    <div class='field' data-test-form='password_confirmation'>
       <label class='label' for='password-confirmation'>Password Confirmation</label>
       <div class='control'>
         {{input id='password-confirmation' class='input' type='password' placeholder='Confirm your password' value=password-confirmation}}
       </div>
     </div>
 
-    <button class='button is-primary' type='submit'>submit</button>
+    <button class='button is-primary' type='submit' data-test-form='submit'>submit</button>
   </form>
 </div>
