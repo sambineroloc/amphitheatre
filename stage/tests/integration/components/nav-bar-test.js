@@ -3,23 +3,38 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { authenticateSession } from 'ember-simple-auth/test-support';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { newSession, setCurrentUserForComponent } from 'stage/tests/helpers/sessions/sign-in';
+
+let user;
 
 module('Integration | Component | nav-bar', function(hooks) {
   setupRenderingTest(hooks);
+  setupMirage(hooks);
 
   test('it renders the app title and login button when unauthenticated', async function(assert) {
     await render(hbs`{{nav-bar}}`);
 
     assert.dom('[data-test-navbar="title"]').hasText('Tabletop Amphitheatre');
-    assert.dom('[data-test-navbar="login"]').hasText('Login')
+    assert.dom('[data-test-navbar="login"]').hasText('Login');
   });
 
   test('it renders the app title, logout button, and home button when authenticated', async function(assert) {
-    await authenticateSession({ username: 'zberto@gmail.com', password: 'password' });
+    user = server.create('user');
+    await authenticateSession({ username: user.email, password: user.password });
     await render(hbs`{{nav-bar}}`);
 
     assert.dom('[data-test-navbar="title"]').hasText('Tabletop Amphitheatre');
     assert.dom('[data-test-navbar="logout"]').hasText('Logout');
     assert.dom('[data-test-navbar="home"]').hasText('Home');
+  });
+
+  test('nav-bar displays username when there is a current user', async function(assert) {
+    await newSession(this);
+    user = server.schema.users.all().models[0];
+    await setCurrentUserForComponent(this, user);
+    await render(hbs`{{nav-bar}}`);
+
+    assert.dom('[data-test-navbar="username"]').hasText(`Logged in as ${user.username}`);
   });
 });

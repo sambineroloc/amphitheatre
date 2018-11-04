@@ -11,7 +11,7 @@ module('Acceptance | Authenticated | Campaigns', function(hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    newSession(this)
+    await newSession(this);
     campaign = server.create('campaign');
   });
 

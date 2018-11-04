@@ -6,6 +6,11 @@ export async function newSession(application) {
   _authenticateUser(user)
 }
 
+export async function setCurrentUserForComponent(component, user) {
+  component.currentUserService = component.owner.lookup('service:current-user');
+  component.currentUserService.user = { username: user.username };
+}
+
 export function _setCurrentUser(application) {
   let StubCurrentUserService = Service.extend({
     load() {
