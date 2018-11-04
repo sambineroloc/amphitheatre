@@ -3,31 +3,31 @@
     <div class='field'>
       <label class='label' for='username'>Username</label>
       <div class='control'>
-        {{input id='username' class='input' placeholder='Enter your username' value=model.username}}
+        {{input data-test-form='username' id='username' class='input' placeholder='Enter your username' value=model.username}}
       </div>
     </div>
 
     <div class='field'>
       <label class='label' for='email'>Email</label>
       <div class='control'>
-        {{input id='email' class='input' placeholder='Enter your email' value=model.email}}
+        {{input data-test-form='email' id='email' class='input' placeholder='Enter your email' value=model.email}}
       </div>
     </div>
 
     <div class='field'>
       <label class='label' for='password'>Password</label>
       <div class='control'>
-        {{input id='password' class='input' type='password' placeholder='Enter your password' value=model.password}}
+        {{input data-test-form='password' id='password' class='input' type='password' placeholder='Enter your password' value=model.password}}
       </div>
     </div>
 
     <div class='field'>
       <label class='label' for='password-confirmation'>Password Confirmation</label>
       <div class='control'>
-        {{input id='password-confirmation' class='input' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
+        {{input data-test-form='password-confirmation' id='password-confirmation' class='input' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
       </div>
     </div>
 
-    <button class='button is-primary' type='submit'>submit</button>
+    <button class='button is-primary' type='submit' data-test-form='submit'>submit</button>
   </form>
 </div>
