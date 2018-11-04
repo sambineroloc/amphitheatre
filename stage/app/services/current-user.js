@@ -1,4 +1,3 @@
-// app/services/current-user.js
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
@@ -12,7 +11,7 @@ export default Service.extend({
     let session = this.get('session');
     let access_token = session.data.authenticated.access_token
     if (session.isAuthenticated) {
-      return store.queryRecord('session', { me: true, access_token: access_token }).then((user) => {
+      return store.queryRecord('session', { me: true, access_token }).then((user) => {
         this.set('user', user);
       });
     } else {
