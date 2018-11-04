@@ -11,21 +11,23 @@ let StubCurrentUserService = Service.extend({
   }
 });
 
+let campaign, user;
+
 module('Acceptance | Authenticated | Campaigns', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
     this.owner.register('service:current-user', StubCurrentUserService);
-    let user = server.create('user');
+    user = server.create('user');
     await authenticateSession({
       identification: user.email,
       password: user.password
     });
+    campaign = server.create('campaign');
   });
 
   test('all campaigns are present', async function(assert) {
-    let campaign = server.create('campaign');
     await visit('/campaigns');
 
     assert.dom('[data-test-campaigns="header"]').hasText('Your Campaigns');
