@@ -2,8 +2,8 @@ import Service from '@ember/service';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
 export async function newSession(application) {
-  let user = _setCurrentUser(application)
-  _authenticateUser(user)
+  let user = setCurrentUser(application)
+  authenticateUser(user)
 }
 
 export async function setCurrentUserForComponent(component, user) {
@@ -11,7 +11,7 @@ export async function setCurrentUserForComponent(component, user) {
   component.currentUserService.user = { username: user.username };
 }
 
-export function _setCurrentUser(application) {
+export function setCurrentUser(application) {
   let StubCurrentUserService = Service.extend({
     load() {
       return server.schema.users.all()[0];
@@ -22,9 +22,18 @@ export function _setCurrentUser(application) {
   return server.create('user');
 }
 
-export async function _authenticateUser(user) {
+export async function authenticateUser(user) {
   await authenticateSession({
     identification: user.email,
     password: user.password
   });
+}
+
+export async function authenticateNewUser() {
+  let user = server.create('user');
+  await authenticateSession({
+    identification: user.email,
+    password: user.password
+  });
+  return user;
 }
