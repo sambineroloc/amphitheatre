@@ -16,7 +16,7 @@ module('Acceptance | Authenticated | Campaigns', function(hooks) {
   });
 
   test('all campaigns are present', async function(assert) {
-    await visit('/campaigns');
+    await visit('/');
 
     assert.dom('[data-test-campaigns="header"]').hasText('Your Campaigns');
     assert.dom('[data-test-campaigns="campaign-title"]').hasText(campaign.title);

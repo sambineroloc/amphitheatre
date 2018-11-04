@@ -14,7 +14,7 @@ Router.map(function() {
   });
 
   this.route('authenticated', { path: '' }, function() {
-    this.route('campaigns');
+    this.route('campaigns', { path: '/' });
     this.route('campaign', { path: '/campaigns/:id' });
   });
 });

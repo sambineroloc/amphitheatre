@@ -13,7 +13,6 @@ export default Controller.extend({
         this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
           this.set('errorMessage', reason.error || reason);
         });
-        this.transitionToRoute('authenticated.campaigns');
       });
     }
   }
