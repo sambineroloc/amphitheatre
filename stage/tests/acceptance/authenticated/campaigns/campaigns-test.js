@@ -1,12 +1,13 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { visit, fillIn, click } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import Service from '@ember/service';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 
 let StubCurrentUserService = Service.extend({
   load() {
-    return server.create('user');
+    return server.schema.users.all()[0];
   }
 });
 
@@ -15,12 +16,12 @@ module('Acceptance | Authenticated | Campaigns', function(hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    this.application.register('service:current-user', StubCurrentUserService);
+    this.owner.register('service:current-user', StubCurrentUserService);
     let user = server.create('user');
-    await visit('/login');
-    await fillIn('[data-test-login="identification"]', user.email);
-    await fillIn('[data-test-login="password"]', user.password);
-    await click('[data-test-login="submit"]');
+    await authenticateSession({
+      identification: user.email,
+      password: user.password
+    });
   });
 
   test('all campaigns are present', async function(assert) {
