@@ -2,21 +2,16 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { visit } from '@ember/test-helpers';
-import { authenticateSession } from 'ember-simple-auth/test-support';
-import { setCurrentUser } from 'stage/tests/helpers/sessions/set-current-user';
+import { newSession } from 'stage/tests/helpers/sessions/sign-in';
 
-let campaign, user;
+let campaign;
 
 module('Acceptance | Authenticated | Campaigns', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    user = setCurrentUser(this);
-    await authenticateSession({
-      identification: user.email,
-      password: user.password
-    });
+    newSession(this)
     campaign = server.create('campaign');
   });
 
