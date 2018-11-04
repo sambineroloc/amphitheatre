@@ -15,7 +15,7 @@ module('Acceptance | Users | New', function(hooks) {
     assert.equal(currentURL(), '/users/sign_up')
   });
 
-  test('form data is applied to the model', async function(assert) {
+  test('form data is applied to the fields', async function(assert) {
     let user = server.build('user');
     this.set('model', user);
     let formData = {
