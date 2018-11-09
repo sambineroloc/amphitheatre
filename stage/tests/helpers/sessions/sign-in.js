@@ -14,7 +14,9 @@ export async function setCurrentUserForComponent(component, user) {
 export function setCurrentUser(application) {
   let StubCurrentUserService = Service.extend({
     load() {
-      return server.schema.users.all()[0];
+      let user = server.schema.users.all().models[0];
+      this.set('user', user)
+      return user;
     }
   });
 
