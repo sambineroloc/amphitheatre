@@ -1,8 +1,8 @@
 <div class='box campaign-form'>
   <form class='field' {{action 'createCampaign' on='submit'}}>
-    {{form-input label='Title' field='title' type='input' placeholder="Enter your campaign's title" value=title}}
-    {{form-input label='Description' field='description' type='input' placeholder="Enter your campaign's description" value=description}}
+    {{form-input label='Title' field='title' type='input' placeholder="Enter your campaign's title" value=model.title}}
+    {{form-input label='Description' field='description' type='input' placeholder="Enter your campaign's description" value=model.description}}
 
-    <button class='button is-primary' type='button' name='button'>submit</button>
+    <button class='button is-link' type='submit' name='button'>submit</button>
   </form>
 </div>
