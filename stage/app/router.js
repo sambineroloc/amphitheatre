@@ -14,8 +14,10 @@ Router.map(function() {
   });
 
   this.route('authenticated', { path: '' }, function() {
-    this.route('campaigns', { path: '/' });
-    this.route('campaign', { path: '/campaigns/:id' });
+    this.route('campaigns', { path: '' }, function() {
+      this.route('index', { path: '/' });
+      this.route('show', { path: '/campaigns/:id' });
+    });
   });
 });
 
