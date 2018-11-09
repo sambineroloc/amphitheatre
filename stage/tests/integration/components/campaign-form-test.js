@@ -13,14 +13,5 @@ module('Integration | Component | campaign-form', function(hooks) {
     await render(hbs`{{campaign-form}}`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#campaign-form}}
-        template block text
-      {{/campaign-form}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
