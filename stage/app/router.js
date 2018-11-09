@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('campaigns', { path: '' }, function() {
       this.route('index', { path: '/' });
       this.route('show', { path: '/campaigns/:id' });
+      this.route('new', { path: '/campaigns/new' });
     });
   });
 });
