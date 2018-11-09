@@ -1,18 +1,7 @@
 <div class='box'>
   <form class='field' {{action 'authenticate' on='submit'}}>
-    <div class='field'>
-      <label class='label' for='identification'>login</label>
-      <div class='control'>
-        {{input data-test-login='identification' id='identification' class='input' placeholder='Enter login' value=identification}}
-      </div>
-    </div>
-
-    <div class='field'>
-      <label class='label' for='password'>Password</label>
-      <div class='control'>
-        {{input data-test-login='password' id='password' class='input' placeholder='Enter Password' type='password' value=password}}
-      </div>
-    </div>
+    {{form-input label='login' field='identification' type='input' placeholder='Enter login' value=identification}}
+    {{form-input label='password' field='password' type='password' placeholder='Enter password' value=password}}
 
     <div class='field'>
       <div class='control'>
