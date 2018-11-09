@@ -1,20 +1,9 @@
-import Component from '@ember/component';
+import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
-export default Component.extend({
+export default Controller.extend({
   session: service(),
-  currentUser: service(),
-  campaign: null,
-
-  didInsertElement() {
-  },
-
-  _resetCampaign() {
-    this.set('campaign', this.get('store').createRecord('campaign', {
-      user: this.get('referrer'),
-      key: this.get('key')
-    }));
-  },
+  currentUser: service('current-user'),
 
   actions: {
     async createCampaign() {

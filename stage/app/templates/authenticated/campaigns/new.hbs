@@ -1,1 +1,8 @@
-{{campaign-form}}
+<div class='box campaign-form'>
+  <form class='field' {{action 'createCampaign' on='submit'}}>
+    {{form-input label='Title' field='title' type='input' placeholder="Enter your campaign's title" value=title}}
+    {{form-input label='Description' field='description' type='input' placeholder="Enter your campaign's description" value=description}}
+
+    <button class='button is-primary' type='button' name='button'>submit</button>
+  </form>
+</div>
