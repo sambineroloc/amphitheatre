@@ -23,14 +23,14 @@ module('Acceptance | Users | New', function(hooks) {
       email: 'guy@threepwood.com',
       password: 'sosecure'
     }
-    await fillIn('[data-test-form="username"]', formData.username);
-    await fillIn('[data-test-form="email"]', formData.email);
-    await fillIn('[data-test-form="password"]', formData.password);
-    await fillIn('[data-test-form="password-confirmation"]', formData.password);
+    await fillIn('[data-test-form="username"] > input', formData.username);
+    await fillIn('[data-test-form="email"] > input', formData.email);
+    await fillIn('[data-test-form="password"] > input', formData.password);
+    await fillIn('[data-test-form="password-confirmation"] > input', formData.password);
 
-    assert.dom('[data-test-form="username"]').hasValue(formData.username);
-    assert.dom('[data-test-form="email"]').hasValue(formData.email);
-    assert.dom('[data-test-form="password"]').hasValue(formData.password);
-    assert.dom('[data-test-form="password-confirmation"]').hasValue(formData.password);
+    assert.dom('[data-test-form="username"] > input').hasValue(formData.username);
+    assert.dom('[data-test-form="email"] > input').hasValue(formData.email);
+    assert.dom('[data-test-form="password"] > input').hasValue(formData.password);
+    assert.dom('[data-test-form="password-confirmation"] > input').hasValue(formData.password);
   })
 });
