@@ -1,6 +1,6 @@
 <div class='panel'>
   <h1 class='panel-heading' data-test-campaigns='header'>Your Campaigns</h1>
-  {{#each model as |campaign|}}
+  {{#each model.campaigns as |campaign|}}
     {{#link-to 'authenticated.campaigns.show' campaign class='panel-block' data-test-campaigns='campaign-title'}}
       {{campaign.title}}
     {{/link-to}}
