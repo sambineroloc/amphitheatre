@@ -1,32 +1,9 @@
 <div class='box users-form'>
   <form class='field' {{action 'createUser' on='submit'}}>
-    <div class='field'>
-      <label class='label' for='username'>Username</label>
-      <div class='control'>
-        {{input data-test-form='username' id='username' class='input' placeholder='Enter your username' value=model.username}}
-      </div>
-    </div>
-
-    <div class='field'>
-      <label class='label' for='email'>Email</label>
-      <div class='control'>
-        {{input data-test-form='email' id='email' class='input' placeholder='Enter your email' value=model.email}}
-      </div>
-    </div>
-
-    <div class='field'>
-      <label class='label' for='password'>Password</label>
-      <div class='control'>
-        {{input data-test-form='password' id='password' class='input' type='password' placeholder='Enter your password' value=model.password}}
-      </div>
-    </div>
-
-    <div class='field'>
-      <label class='label' for='password-confirmation'>Password Confirmation</label>
-      <div class='control'>
-        {{input data-test-form='password-confirmation' id='password-confirmation' class='input' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
-      </div>
-    </div>
+    {{form-input label='Username' field='username' type='input' placeholder='Enter your username' value=model.username}}
+    {{form-input label='Email' field='email' type='input' placeholder='Enter your email' value=model.email}}
+    {{form-input label='Password' field='password' type='password' placeholder='Enter your password' value=model.password}}
+    {{form-input label='Username' field='password-confirmation' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
 
     <button class='button is-link' type='submit' data-test-form='submit'>submit</button>
   </form>
