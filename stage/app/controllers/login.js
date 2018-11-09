@@ -12,8 +12,6 @@ export default Controller.extend({
         this.set('errorMessage', reason.error || reason);
       });
       this.transitionToRoute('/');
-      // await this.get('currentUser').load();
-      // this.transitionToRoute('/', this.get('currentUser').user.id);
     }
   }
 });
