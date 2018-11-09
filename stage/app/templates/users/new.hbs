@@ -1,9 +1,9 @@
 <div class='box users-form'>
   <form class='field' {{action 'createUser' on='submit'}}>
-    {{form-input class='field' label='Username' field='username' type='input' placeholder='Enter your username' value=model.username}}
-    {{form-input class='field' label='Email' field='email' type='input' placeholder='Enter your email' value=model.email}}
-    {{form-input class='field' label='Password' field='password' type='password' placeholder='Enter your password' value=model.password}}
-    {{form-input class='field' label='Username' field='password-confirmation' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
+    {{form-input label='Username' field='username' type='input' placeholder='Enter your username' value=model.username}}
+    {{form-input label='Email' field='email' type='input' placeholder='Enter your email' value=model.email}}
+    {{form-input label='Password' field='password' type='password' placeholder='Enter your password' value=model.password}}
+    {{form-input label='Username' field='password-confirmation' type='password' placeholder='Confirm your password' value=model.password-confirmation}}
 
     <button class='button is-link' type='submit' data-test-form='submit'>submit</button>
   </form>
