@@ -14,6 +14,7 @@ export default Controller.extend({
           this.set('errorMessage', reason.error || reason);
         });
       });
+      this.transitionToRoute('/');
     }
   }
 });

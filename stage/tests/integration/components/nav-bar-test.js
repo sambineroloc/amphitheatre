@@ -16,7 +16,7 @@ module('Integration | Component | nav-bar', function(hooks) {
     await render(hbs`{{nav-bar}}`);
 
     assert.dom('[data-test-navbar="title"]').hasText('Tabletop Amphitheatre');
-    assert.dom('[data-test-navbar="login"]').hasText('Login');
+    assert.dom('[data-test-navbar="login"]').hasText('login');
   });
 
   test('it renders the app title, logout button, and home button when authenticated', async function(assert) {
