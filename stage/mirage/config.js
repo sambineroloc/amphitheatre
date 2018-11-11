@@ -4,7 +4,8 @@ export default function() {
     return db.users.all()[0];
   });
   this.get('/users/:id', function(db) {
-    return db.users.all()[0];
+    let user = db.users.all().models[0];
+    return user;
   });
   this.post('/users', function(db, request) {
     var attrs = JSON.parse(request.requestBody).data.attributes;

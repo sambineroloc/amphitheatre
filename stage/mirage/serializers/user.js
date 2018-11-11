@@ -1,5 +1,3 @@
-import Serializer from 'ember-data/serializer';
+import { JSONAPISerializer } from 'ember-cli-mirage';
 
-export default Serializer.extend({
-  include: 'campaign'
-});
+export default JSONAPISerializer;
