@@ -8,7 +8,7 @@ export default Controller.extend({
   actions: {
     async authenticate() {
       let { identification, password } = this.getProperties('identification', 'password');
-      await this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
+      this.get('session').authenticate('authenticator:oauth2', identification, password).catch((reason) => {
         this.set('errorMessage', reason.error || reason);
       });
       this.transitionToRoute('/');

@@ -9,7 +9,7 @@ export default Service.extend({
   load() {
     let store = this.get('store');
     let session = this.get('session');
-    let access_token = session.data.authenticated.access_token
+    let access_token = session.data.authenticated.access_token;
     if (session.isAuthenticated) {
       return store.queryRecord('session', { me: true, access_token }).then((user) => {
         this.set('user', user);
