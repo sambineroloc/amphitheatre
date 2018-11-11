@@ -30,8 +30,7 @@ module('Integration | Component | nav-bar', function(hooks) {
   });
 
   test('nav-bar displays username when there is a current user', async function(assert) {
-    await newSession(this);
-    user = server.schema.users.all().models[0];
+    user = await newSession(this);
     await setCurrentUserForComponent(this, user);
     await render(hbs`{{nav-bar}}`);
 

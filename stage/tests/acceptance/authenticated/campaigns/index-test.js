@@ -11,9 +11,8 @@ module('Acceptance | Campaigns | Index', function(hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    await newSession(this);
+    user = await newSession(this);
     currentUser = this.owner.factoryFor('service:current-user').create();
-    user = server.schema.users.all().models[0];
     this.set('currentUser', currentUser);
     campaign = server.create('campaign', { user: user });
   });
