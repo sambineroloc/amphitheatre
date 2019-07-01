@@ -15,5 +15,11 @@ module Amphitheatre
     end
 
     config.generators.javascript_engine = :js
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :put, :delete, :options]
+      end
+    end
   end
 end

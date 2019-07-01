@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   use_doorkeeper
-  mount_ember_app :stage, to: "/"
 
   jsonapi_resources :blue_books
   jsonapi_resources :campaigns
