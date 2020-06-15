@@ -1,0 +1,30 @@
+language: ruby
+rvm:
+  - 2.5.1
+
+bundler_args: --without debug development staging
+
+cache:
+  bundler: true
+
+addons:
+  postgresql: '9.6'
+
+env:
+- "RAILS_ENV=ci RACK_ENV=ci SECRET_KEY_BASE=test"
+
+before_install:
+  - gem update --system
+  - gem install rubocop
+
+before_script:
+  # Create directory for Rails cache, otherwise Travis fails
+  - mkdir -p tmp/cache
+  - rm -rf coverage
+  # Migrate the database to the latest
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+
+script:
+  - bundle exec rspec
+  - bundle exec rake ember:test

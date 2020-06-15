@@ -8,6 +8,8 @@ AllCops:
     - 'bin/**/'
     - 'spec/**/**'
     - 'stage/**/**'
+    - '.rubocop_todo.yml'
+    - '.rubocop.yml'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
